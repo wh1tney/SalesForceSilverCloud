@@ -1,3 +1,9 @@
+/***** Variables *****/
+$small: "only screen and (min-width : 480px)";
+$medium: "only screen and (min-width : 767px)";
+$large: "only screen and (min-width : 1200px)";
+
+
 /* apply a natural box layout model to all elements, but allowing components to change */
 html {
   box-sizing: border-box;
@@ -7,7 +13,7 @@ html {
 }
 
 body {
-
+	font-size: 16px;
 }
 
 header {
@@ -31,14 +37,6 @@ footer {
 	height: 100%;
 	padding: 50px 10%;
 }
-
-// .active {
-// 	display: block;
-// }
-
-// .inactive {
-// 	display: none;
-// }
 
 /***** Splash *****/
 
@@ -79,3 +77,16 @@ footer {
 .signin {
 	right: 5px;
 }
+
+//***** Media Query Usage *****/
+@media #{$small} {
+
+}	
+
+@media #{$medium} {
+
+}	
+
+@media #{$large} {
+
+}	
