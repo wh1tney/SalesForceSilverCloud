@@ -4,10 +4,9 @@
 #
 #  id              :integer          not null, primary key
 #  name            :string(255)
-#  username        :text
 #  address         :string(255)
 #  latitude        :integer
-#  longitude       :string(255)
+#  longitude       :integer
 #  email           :string(255)
 #  company_name    :string(255)
 #  created_at      :datetime

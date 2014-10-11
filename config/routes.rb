@@ -13,6 +13,8 @@
   # This will be used as a sandbox for map testing
   get '/maptest', to: 'test_forces#index'
 
+  get '/users' => "sfdc_users#index"
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
