@@ -3,8 +3,12 @@
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  get '/map' => 'test_forces#index'
   root 'users#login'
+
+  get '/container', to: 'users#container', as: 'users'
+
+  # This will be used as a sandbox for map testing
+  get '/maptest', to: 'test_forces#index' 
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
