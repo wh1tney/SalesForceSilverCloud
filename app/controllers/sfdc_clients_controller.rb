@@ -2,7 +2,11 @@ class SfdcClientsController < ApplicationController
   include Databasedotcom::Rails::Controller
 
   def index
-    @clients = Client__c.all()
+    @clients = Client__c.all()[0..19]
+    respond_to do |format|
+      format.html
+      format.json { render json: @clients }
+    end
   end
 
   def show
