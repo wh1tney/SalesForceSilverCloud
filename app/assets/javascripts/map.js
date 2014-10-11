@@ -34,6 +34,8 @@ $(function() {
   var geojsonFeature = {
     "type": "Feature",
     "properties": {
+      "marker-color": "#000",
+      "marker-symbol": "star-stroked",
       "name": "Coors Field",
       "amenity": "Baseball Stadium",
       "popupContent": "This is where the Rockies play!"
