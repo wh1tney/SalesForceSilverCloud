@@ -4,7 +4,8 @@ $(function() {
 
   L.tileLayer('https://{s}.tiles.mapbox.com/v3/examples.map-i87786ca/{z}/{x}/{y}.png', {
     attribution: 'Map data',
-    maxZoom: 18
+    maxZoom: 18,
+    minZoom:12
   }).addTo(map);
 
   map.locate({setView: true, maxZoom: 16});
