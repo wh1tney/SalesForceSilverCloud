@@ -5,6 +5,11 @@ class UsersController < ApplicationController
   end
 
   
+  def signup
+  	@user = User.create()
+  end 
+
+
   def container
   end
 
