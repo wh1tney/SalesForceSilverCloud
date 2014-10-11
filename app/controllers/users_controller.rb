@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
  
-  def login
+  def welcome
     @user = User.new
   end
 
   
   def signup
-  	@user = User.create()
+  	
   end 
 
 

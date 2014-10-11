@@ -1,0 +1,81 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+
+}
+
+header {
+	position: absolute;
+	height: 40px;
+	width: 100%;
+	top: 0;
+	background: rgb(111, 114, 129);
+}
+
+footer {
+	position: absolute;
+	height: 40px;
+	width: 100%;
+	bottom: 0;	
+	background: rgb(111, 114, 129);
+}
+
+.main-wrapper {
+	width: 100%;
+	height: 100%;
+	padding: 50px 10%;
+}
+
+// .active {
+// 	display: block;
+// }
+
+// .inactive {
+// 	display: none;
+// }
+
+/***** Splash *****/
+
+.underlay {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	background: url(<%= asset_path 'handheld.jpg' %>);
+	background-size: cover;
+}
+
+.signup_form, .signin_form {
+	display: none;
+}
+
+.active {
+	display: block;
+}
+
+.signup, .signin {
+	position: absolute;
+	bottom: 90px;
+	width: 120px;
+	height: 40px;
+	border: 3px solid white;
+	cursor: pointer;
+	text-align: center;
+	line-height: 40px;
+}
+
+.signup {
+	left: 5px;
+}
+
+.signin {
+	right: 5px;
+}
