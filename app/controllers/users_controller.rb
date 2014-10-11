@@ -1,12 +1,24 @@
 class UsersController < ApplicationController
  
-  def login
+  def welcome
     @user = User.new
+  end
+
+  def create
+    @user = User.new(params.require(:user).permit(:name, :username, :email, :company_name, :password, :password_confirmation))
+    respond_to do |format|
+      if @user.save
+        # We would create a session here with create_session
+        redirect_to container_path, notice: 'User was successfully created.'
+      else
+        redirect_to :back
+      end
+    end
   end
 
   
   def signup
-  	@user = User.create()
+  	
   end 
 
 
