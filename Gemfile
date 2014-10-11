@@ -42,3 +42,5 @@ gem 'thin'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Configure app to serve assets in production
+gem 'rails_12factor', group: :production
