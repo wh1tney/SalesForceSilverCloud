@@ -2,20 +2,19 @@ class SfdcClientsController < ApplicationController
   include Databasedotcom::Rails::Controller
 
   def index
-    #@clients = Client.all()
     @clients = Client__c.all()
   end
 
   def show
-    #@client = Client.find(params[:id])
+    # CURRENTLY ONLY GETS FIRST ENTRY
     @client = Client__c.all()[0]
 
     @name      = @client.Name
     @address   = @client.address__c
     @bio       = @client.bio__c
-    @inquiries = @client.inquiries__c
-    @price     = @client.price__c
-    @rating    = @client.rating__c
+    @inquiries = @client.inquiries__c.to_i
+    @price     = "$#{@client.price__c.to_i}"
+    @rating    = @client.rating__c.to_i
     @email     = @client.email__c
     @phone     = @client.phone__c
     @industry  = @client.industry__c
