@@ -11,6 +11,8 @@
   get '/maptest', to: 'test_forces#index'
   get '/welcome' => "users#login" 
 
+  get '/users' => "sfdc_users#index"
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
