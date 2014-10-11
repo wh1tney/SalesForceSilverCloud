@@ -47,3 +47,6 @@ gem 'bcrypt'
 
 # Configure app to serve assets in production
 gem 'rails_12factor', group: :production
+
+
+gem 'annotate', '~> 2.6.5'
