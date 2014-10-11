@@ -39,6 +39,9 @@ gem 'thin'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# bcrypt gem for password authentication 
+gem 'bcrypt'
+
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
