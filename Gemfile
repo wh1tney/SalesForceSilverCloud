@@ -52,3 +52,4 @@ gem 'rails_12factor', group: :production
 gem 'annotate', '~> 2.6.5'
 
 gem 'omniauth'
+gem 'omniauth-salesforce'
