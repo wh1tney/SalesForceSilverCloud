@@ -5,11 +5,13 @@
   # You can have the root of your site routed with "root"
 
   root 'users#welcome'
-  get '/container', to: 'users#container', as: 'users'
+  get '/welcome' => "users#welcome", as: 'users'
+  post '/welcome' => "users#create"
+
+  get '/container', to: 'users#container', as: 'container'
 
   # This will be used as a sandbox for map testing
   get '/maptest', to: 'test_forces#index'
-  get '/welcome' => "users#welcome" 
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
