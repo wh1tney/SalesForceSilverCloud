@@ -1,5 +1,17 @@
 // initialize the map on the "map" div with a given center and zoom
 $(function() {
+  $.ajax({
+    url: '/clients',
+    method: 'get',
+    dataType: 'json'   
+  }).done(function(response) {
+    console.log(response);
+  }).fail(function(response) {
+    console.log("failed");
+  })
+
+
+
   var map = L.map('map');
 
   L.tileLayer('https://{s}.tiles.mapbox.com/v3/examples.map-i87786ca/{z}/{x}/{y}.png', {
