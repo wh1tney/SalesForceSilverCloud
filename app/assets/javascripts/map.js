@@ -1,58 +1,67 @@
-// initialize the map on the "map" div with a given center and zoom
 $(function() {
-  var map = L.map('map');
+  var clientMarkers = [];
 
-  L.tileLayer('https://{s}.tiles.mapbox.com/v3/examples.map-i87786ca/{z}/{x}/{y}.png', {
-    attribution: 'Map data',
-    maxZoom: 18,
-    minZoom:12
-  }).addTo(map);
+  $.ajax({
+    url: '/clients',
+    method: 'get',
+    dataType: 'json'
+  }).done(function(response) {
+    createClientMarkers(response);
+    generateMap();
+  }).fail(function(response) {
+    console.log("ERROR: Failed to get client data from server");
+  })
 
-  map.locate({setView: true, maxZoom: 16});
-
-  function onLocationFound(e) {
-    var radius = e.accuracy / 2;
-
-    L.marker(e.latlng).addTo(map).bindPopup("You are within " + radius + " meters from this point").openPopup();
-
-    L.circle(e.latlng, radius).addTo(map);
-  }
-
-  function onLocationError(e) {
-    alert(e.message);
-  }
-
-  map.on('locationfound', onLocationFound);
-  map.on('locationerror', onLocationError);
-
-  function onEachFeature(feature, layer) {
-    if (feature.properties && feature.properties.popupContent) {
-      layer.bindPopup(feature.properties.popupContent);
+  var createClientMarkers = function(clients) {
+    for(var idx = 0; idx < clients.length; idx++) {
+      clientMarkers.push({
+        "type": "Feature",
+        "properties": {
+            "popupContent": clients[idx].Name
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [clients[idx].location__Longitude__s, clients[idx].location__Latitude__s]
+        }
+      })
     }
-  };
+  }
+  
+  var generateMap = function() {
 
-  var geojsonFeature = {
-    "type": "Feature",
-    "properties": {
-      "marker-color": "#000",
-      "marker-symbol": "star-stroked",
-      "name": "Coors Field",
-      "amenity": "Baseball Stadium",
-      "popupContent": "This is where the Rockies play!"
-    }, 
+    var map = L.map('map');
 
-    "geometry": {
-      "type": "Point",
-      "coordinates": [-122.404393, 37.784896]
+    L.tileLayer('https://{s}.tiles.mapbox.com/v3/wobanner.jo67ee4a/{z}/{x}/{y}.png', {
+      attribution: 'Map data',
+      maxZoom: 18,
+      minZoom: 12
+    }).addTo(map);
+
+    map.locate({setView: true, maxZoom: 16});
+
+    function onLocationFound(e) {
+      var radius = e.accuracy / 2;
+
+      L.marker(e.latlng).addTo(map).bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+      L.circle(e.latlng, radius).addTo(map);
     }
-  };
-  var style= {
-      "color": "#970908", 
-      "weight": 5, 
-      "opacity": 0.45
+
+    function onLocationError(e) {
+      alert(e.message);
+    }
+
+    map.on('locationfound', onLocationFound);
+    map.on('locationerror', onLocationError);
+
+    function onEachFeature(feature, layer) {
+      if (feature.properties && feature.properties.popupContent) {
+        layer.bindPopup(feature.properties.popupContent);
+      }
     };
-  L.geoJson(geojsonFeature, {
-    style: style,
-    onEachFeature: onEachFeature
-  }).addTo(map);
+
+    L.geoJson(clientMarkers, {
+      onEachFeature: onEachFeature
+    }).addTo(map);
+  }
 });
