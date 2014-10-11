@@ -1,0 +1,9 @@
+<div class="main-wrapper">
+    <h1>Clients</h1>
+
+    <% @clients.each do |c| %>
+        <%= "#{c.Name}" %><br/>
+        <%= "#{c.address__c}" %><br/>
+        <%= "(#{c.location__Latitude__s}, #{c.location__Longitude__s})" %><br/>
+    <% end %>
+</div>
