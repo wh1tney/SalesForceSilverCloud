@@ -4,6 +4,8 @@
 
   # You can have the root of your site routed with "root"
 
+  #resources :sfdc_clients
+
   root 'users#welcome'
   get '/welcome' => "users#welcome", as: 'users'
   post '/welcome' => "users#create"
@@ -15,6 +17,7 @@
 
   get '/users' => "sfdc_users#index"
   get '/clients' => "sfdc_clients#index"
+  get '/client' => "sfdc_clients#show"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

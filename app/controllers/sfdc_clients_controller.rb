@@ -2,12 +2,24 @@ class SfdcClientsController < ApplicationController
   include Databasedotcom::Rails::Controller
 
   def index
-    @clients = Client__c.all()
     #@clients = Client.all()
+    @clients = Client__c.all()
   end
 
   def show
-    @client = Client__c.find(params[:id])
+    #@client = Client.find(params[:id])
+    @client = Client__c.all()[0]
+
+    @name      = @client.Name
+    @address   = @client.address__c
+    @bio       = @client.bio__c
+    @inquiries = @client.inquiries__c
+    @price     = @client.price__c
+    @rating    = @client.rating__c
+    @email     = @client.email__c
+    @phone     = @client.phone__c
+    @industry  = @client.industry__c
+    @primary_contact = @client.primary_contact__c
   end
 
 # Routes to be utilized later
