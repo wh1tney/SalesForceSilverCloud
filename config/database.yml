@@ -6,7 +6,7 @@ default: &default
 development:
   adapter: postgresql
   host: localhost
-  username: user
+  username:
   database: db/silvercloud_dev
 
 # Warning: The database defined as "test" will be erased and
