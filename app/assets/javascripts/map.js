@@ -53,7 +53,7 @@ $(function() {
       minZoom: 12
     }).addTo(map);
 
-    map.locate({setView: true, maxZoom: 16});
+    map.locate({setView: true, maxZoom: 16, timeout: 50000});
 
     function onLocationFound(e) {
 
