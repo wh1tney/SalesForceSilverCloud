@@ -1,26 +1,27 @@
 class UsersController < ApplicationController
- 
-  def welcome
+  include Databasedotcom::Rails::Controller
+
+  def index
+    @users = User.all()[0..19]
+  end
+
+  def new
     @user = User.new
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
   def create
     @user = User.new(params.require(:user).permit(:name, :username, :email, :company_name, :password, :password_confirmation))
-      if @user.save
-        # We would create a session here with create_session
-        redirect_to homepage_path, notice: 'User was successfully created.'
-      else
-        redirect_to :back
-      end
+    if @user.save
+      # We would create a session here with create_session
+      redirect_to homepage_path, notice: 'User was successfully created.'
+    else
+      redirect_to :back
+    end
   end
-
-  
-  def signup
-  	
-  end 
-
-
-  
 
 # Routes to be utilized later
 #   # GET /users/new
