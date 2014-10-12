@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  include Databasedotcom::Rails::Controller
-
   def index
     @users = User.all()[0..19]
   end
