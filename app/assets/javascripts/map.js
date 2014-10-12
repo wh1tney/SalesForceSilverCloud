@@ -16,14 +16,13 @@ $(function() {
         filter_name: $(this).text()
       }
     }).done(function (response) {
-      map.remove();
       clients = [];
+      map.remove();
       map = generateMap();
-      //createClientMarkers(response);
       createClientMarkers(response.clients);
       addClientMarkers(map);
-      $('.clients-list').find('.contain').show().html(response.html);
-      // render clients list partial
+      $('.clients-list').find('.contain').html(response.html);
+      $('.clients-list').slideDown(600);
     }).fail(function (response) {
       console.log("ERROR: Failed to get client data from server");
     });
