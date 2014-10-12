@@ -15,6 +15,7 @@
 
   get '/users' => "sfdc_users#index"
   get '/clients' => "sfdc_clients#index"
+  get '/client' => "sfdc_clients#show"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

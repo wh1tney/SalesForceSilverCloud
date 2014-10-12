@@ -2,7 +2,7 @@ class SfdcClientsController < ApplicationController
   include Databasedotcom::Rails::Controller
 
   def index
-    @clients = Client__c.all()[0..19]
+    @clients = Client__c.all()
     respond_to do |format|
       format.html
       format.json { render json: @clients }
@@ -10,7 +10,19 @@ class SfdcClientsController < ApplicationController
   end
 
   def show
-    @clients = Client__c.find(params[:id])
+    # CURRENTLY ONLY GETS FIRST ENTRY
+    @client = Client__c.all()[0]
+
+    @name      = @client.Name
+    @address   = @client.address__c
+    @bio       = @client.bio__c
+    @inquiries = @client.inquiries__c.to_i
+    @price     = "$#{@client.price__c.to_i}"
+    @rating    = @client.rating__c.to_i
+    @email     = @client.email__c
+    @phone     = @client.phone__c
+    @industry  = @client.industry__c
+    @primary_contact = @client.primary_contact__c
   end
 
 # Routes to be utilized later
