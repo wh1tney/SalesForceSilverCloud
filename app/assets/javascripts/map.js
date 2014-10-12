@@ -1,6 +1,7 @@
 $(function() {
   var clients = [];
   var map;
+  var currentLoc;
 
   $.ajax({
     url: '/clients',
@@ -19,17 +20,20 @@ $(function() {
 
   var createClientMarkers = function(clientObjs) {
     for(var idx = 0; idx < clientObjs.length; idx++) {
-      clients.push({
-        "type": "Feature",
-        "properties": {
-            "id": idx + 1,
-            "popupContent": clientObjs[idx].Name
-        },
-        "geometry": {
-            "type": "Point",
-            "coordinates": [clientObjs[idx].location__Longitude__s, clientObjs[idx].location__Latitude__s]
-        }
-      })
+      var clientDistanceInMiles = currentLoc.distanceTo([clientObjs[idx].location__Latitude__s, clientObjs[idx].location__Longitude__s])/1609.34;
+      if(clientDistanceInMiles <= 10) {
+        clients.push({
+          "type": "Feature",
+          "properties": {
+              "id": idx + 1,
+              "popupContent": clientObjs[idx].Name
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [clientObjs[idx].location__Longitude__s, clientObjs[idx].location__Latitude__s]
+          }
+        })
+      }
     }
   };
 
@@ -52,6 +56,8 @@ $(function() {
         markerColor: 'blue',
         prefix: 'fa'
       });
+
+      currentLoc = e.latlng;
 
       L.marker(e.latlng, {icon: userIcon}).addTo(map).bindPopup("You are here").openPopup();
     }
