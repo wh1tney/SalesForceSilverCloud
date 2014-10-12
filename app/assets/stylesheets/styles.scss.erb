@@ -23,6 +23,15 @@ body {
 	color: #2f353d;
 }
 
+a {
+	color: white;
+	text-decoration: none;
+}
+
+.wrap {
+	position: relative;
+}
+
 header {
 	position: absolute;
 	height: 75px;
@@ -31,6 +40,7 @@ header {
 	background: $lightgray;
 	border-bottom: 3px solid rgb(234, 234, 234);
 }
+
 
 .inactive {
 	display: none;
@@ -41,42 +51,71 @@ header {
 	width: 80%;
 }
 
+/***** Main Styles *****/
+
+.panel {
+    position: fixed;
+    left: -15.625em; /*left or right and the width of your navigation panel*/
+    width: 15.625em; /*should match the above value*/
+}
+
+#menu {
+	background: $cloudblue;
+
+	li {
+		list-style: none;
+	}
+}
+
 .menu-btn {
 	margin: 25px;
+	cursor: pointer;
 }
 
 .menu-btn div {
- position: absolute;
- left: 100%;
- top: 64%;
- padding-right: 8px;
- margin-top: -0.50em;
- line-height: 1.2;
- font-size: 18px;
- font-weight: 200;
- vertical-align: middle;
- z-index: 99;
+	position: absolute;
+	left: 100%;
+	top: 64%;
+	padding-right: 8px;
+	margin-top: -0.50em;
+	line-height: 1.2;
+	font-size: 18px;
+	font-weight: 200;
+	vertical-align: middle;
+	z-index: 99;
 }
  
 .menu-btn span {
- display: block;
- width: 40px;
- height: 5px;
- margin: 6px 0;
- background: rgb(35, 95, 114);
- z-index: 99;
+	display: block;
+	width: 40px;
+	height: 5px;
+	margin: 6px 0;
+	background: rgb(35, 95, 114);
+	z-index: 99;
 }
  
 .responsive-menu{
- display: none;
+	display: none;
 }
  
 .expand {
- display: block !important; 
+	display: block !important; 
 }
 
+.drawer {
+	background: blue;
+}
+.logo-wrapper {
+	position: absolute;
+	width: 100%;
+	top: 10px;
+}
 .logo {
-	
+	position: relative;
+	width: 100px;
+	height: 40px;
+	margin: 0 auto;
+	background: url(<%= asset_path 'logo.svg' %>);
 }
 
 .search {
@@ -210,6 +249,11 @@ footer {
 		font-size: 1.2em;
 		color: white;
 
+		a {
+			width: 100%;
+			display: block;
+		}
+		
 	}
 }
 
