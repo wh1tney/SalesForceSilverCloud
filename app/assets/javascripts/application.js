@@ -15,3 +15,11 @@
 //= require turbolinks
 //= require bigSlide
 //= require_tree .
+
+$(document).ready(function() {
+  $('.clients-list').hide();
+
+  $('.locate-clients').on('click', function() {
+    $('.clients-list').slideDown(600)
+  });
+});
