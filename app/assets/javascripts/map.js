@@ -17,7 +17,8 @@ $(function() {
       clients.push({
         "type": "Feature",
         "properties": {
-            "popupContent": clientObjs[idx].Name,
+            "id": idx + 1,
+            "popupContent": clientObjs[idx].Name
         },
         "geometry": {
             "type": "Point",
@@ -64,16 +65,16 @@ $(function() {
       }
     };
 
-    var clientIcon = L.AwesomeMarkers.icon({
-      icon: 'child',
-      markerColor: 'red',
-      prefix: 'fa'
-    });
-
     L.geoJson(clients, {
       onEachFeature: onEachFeature,
       pointToLayer: function (feature, latlng) {
-          return L.marker(latlng, {icon: clientIcon});
+          return L.marker(latlng, {icon: L.AwesomeMarkers.icon({
+              icon: '',
+              markerColor: 'red',
+              prefix: 'fa',
+              html: feature.properties.id
+            })
+          });
       }
     }).addTo(map);
   }
