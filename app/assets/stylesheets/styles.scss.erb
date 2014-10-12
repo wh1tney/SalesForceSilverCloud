@@ -282,6 +282,7 @@ footer {
 		cursor: pointer;
 
 		.rank {
+			position: relative;
 			float: left;
 			height: 40px;
 			width: 40px;
@@ -295,8 +296,30 @@ footer {
 			transition-delay: .6s;
 		}
 
-		.rank.expander {
+		.rank img {
+			position: absolute;
+			top: 2px;
+			left: 2px;
+			opacity: 0;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+
+			transition: all .5s;
+			transition-delay: .5s;
+		}
+
+		.rank img.expander {
+			width: 80px;
 			height: 80px;
+			opacity: 1;
+		}
+
+		.rank.expander {
+			height: 84px;
+			width: 84px;
+			border-radius: 50%;
+			margin-left: 42%;
 		}
 
 		.business-name {
@@ -346,6 +369,10 @@ footer {
 @media #{$medium} {
 	body {
 		font-size: 16px;
+	}
+
+	.contain {
+		width: 80%;
 	}
 }	
 
