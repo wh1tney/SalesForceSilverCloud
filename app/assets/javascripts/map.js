@@ -31,7 +31,7 @@ $(function() {
 
     var map = L.map('map');
 
-    L.tileLayer('https://{s}.tiles.mapbox.com/v3/jframel.jo7hhmk5/{z}/{x}/{y}.png', {
+    L.tileLayer('https://{s}.tiles.mapbox.com/v3/wobanner.jo67ee4a/{z}/{x}/{y}.png', {
       attribution: 'Map data',
       maxZoom: 18,
       minZoom: 12
