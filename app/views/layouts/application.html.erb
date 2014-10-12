@@ -18,12 +18,29 @@
 </head>
 <body>
 	<nav id="menu" class="panel" role="navigation">
-	    <ul>
-	        <li><a href="#">Link1</a></li>
-	        <li><a href="#">Link2</a></li>
-	        <li><a href="#">Link3</a></li>
-	        <li><a href="#">Make Better</a></li>
-	    </ul>
+	    <div class="profile">
+	    	<div class="profile-image-wrapper"><img src="<%= asset_path('julia.png') %> " alt="User Profile Image" class="profile-image"></div>
+	    	<div class="profile-info">
+	    		<p class="position">Associate</p>
+	    		<p class="name">Julia Framel</p>
+	    	</div>
+	    </div>
+	    <hr>
+	    <div class="contain">
+	    	<div class="listing">
+	    		<h3>My Client Listings</h3>
+	    				<div class="current">
+	    					<img src="<%= asset_path('plus.svg')  %>" alt="plus icon">
+	    					Current Client List
+	    				</div>
+	    				<div class="prospective">
+	    					<img src="<%= asset_path('plus.svg')  %>" alt="plus icon">
+	    					Prospective Client List
+	    				</div>
+	    				<div class="logout"><img src="<%= asset_path('logout.svg')  %>" alt="log out icon">Log Out of SilverCloud</div>
+	    	</div>
+	    </div>
+
 	</nav>
 
 	<div class="wrap push">
