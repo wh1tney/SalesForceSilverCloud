@@ -19,6 +19,7 @@ $(function() {
       map = generateMap();
       createClientMarkers(response);
       addClientMarkers(map);
+      filterClientList();
     });
   }).fail(function(response) {
     console.log("ERROR: Failed to get client data from server");
@@ -40,6 +41,23 @@ $(function() {
               "coordinates": [clientObjs[idx].location__Longitude__s, clientObjs[idx].location__Latitude__s]
           }
         })
+      }
+    }
+  };
+
+  var filterClientList = function() {
+    var clientListObjs = document.getElementsByClassName("list-detail");
+    var n = 1;
+    for(var i = 0; i < clientListObjs.length; i++) {
+      clientListObjs[i].style.display="none";
+      var businessName = clientListObjs[i].children[2].children[0].innerHTML;
+      for(var j = 0; j < clients.length; j++) {
+        if(businessName == clients[j].properties.popupContent) {
+          clientListObjs[i].style.display="inherit";
+          clientListObjs[i].children[1].innerHTML = n;
+          n++;
+          break;
+        }
       }
     }
   };
