@@ -18,6 +18,11 @@
   get '/clients/:id' => "sfdc_clients#show"
 
 
+  # omniauth routes
+  get '/login', :to => 'sessions#new', :as => :login
+  get '/auth/:provider/callback', :to => 'sessions#create'
+  get '/auth/failure', :to => 'sessions#failure'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
