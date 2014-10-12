@@ -26,22 +26,26 @@
 				<div class="address-section">
 					<p class="address"><%= "#{c.address__c}" %></p>
 				</div>
-				<div class="expanded-details">
-					<div class="contact-person">
-						<!-- <img src="" alt=""> -->
-						<p class="contact"><%= c.primary_contact__c %></p>
-					</div>
-					<div class="phone-section">
-						<!-- <img src="" alt=""> -->
-						<p class="number"><%= c.phone__c %></p>
-					</div>
-					<div class="industry-section">
-						<!-- <img src="industry icon" alt=""> -->
-						<p class="industry"><%= c.industry__c %></p>
-					</div>
-					<div class="bio-section">
-						<!-- <img src="industry icon" alt=""> -->
-						<p class="bio"><%= c.bio__c %></p>
+				<div class="expanded-details-wrapper">
+					<div class="expanded-details">
+						<div class="contact-person">
+							<img src="<%= asset_path('person.svg') %>" alt="contact logo">
+							<p class="contact"><%= c.primary_contact__c %></p>
+						</div>
+						<div class="phone-section">
+							<img src="<%= asset_path('phone.svg') %>" alt="phone logo">
+							<p class="number"><%= c.phone__c %></p>
+						</div>
+						<div class="industry-section">
+							<img src="<%= asset_path('entertainment.svg') %>" alt="industry logo">
+							<p class="industry"><%= c.industry__c %></p>
+						</div>
+						<div class="bio-section">
+							<p class="bio"><%= c.bio__c %></p>
+						</div>
+						<div class="chatter-section">
+							<p>Chatter Section</p>
+						</div>
 					</div>
 				</div>
 			</div>
