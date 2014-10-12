@@ -26,7 +26,13 @@
 		<% @clients.each do |c| %>
 			<div class="list-detail">
 				<img class="back" src="<%= asset_path('back.svg')  %> " alt="back icon">
-				<div class="rank"><%= num %><img src="https://en.gravatar.com/userimage/49627792/0c14fe363f30cd4a8ecbf2b109abfac9.jpg" alt="gravatar image"></div>
+        <% if (c.id__c.to_i % 2) == 0 %>
+          <div class="rank rank-prospect">
+        <% else %>
+          <div class="rank rank-current">
+        <% end %>
+            <%= num %><img src="https://en.gravatar.com/userimage/49627792/0c14fe363f30cd4a8ecbf2b109abfac9.jpg" alt="gravatar image">
+          </div>
 				<div class="business-name"><%= link_to "#{c.Name}", "/clients/#{c.id__c}" %></div>
 				<div class="address-section">
 					<p class="address"><%= "#{c.address__c}" %></p>
