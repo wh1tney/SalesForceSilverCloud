@@ -1,5 +1,5 @@
 <div class="main-wrapper">
-
+  <img src="<%= h(gravatar_url(@client.email__c, :size => 80)) %>" alt="Gravatar"/>
   <p>Name: <%= @name %></p>
   <p>Address: <%= @address %></p>
   <p>Bio: <%= @bio %></p>

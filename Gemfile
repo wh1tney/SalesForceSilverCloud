@@ -48,6 +48,8 @@ gem 'bcrypt'
 # Configure app to serve assets in production
 gem 'rails_12factor', group: :production
 
+# gravatar gem 
+gem 'gravatarify', '~> 3.0.0'
 
 gem 'annotate', '~> 2.6.5'
 

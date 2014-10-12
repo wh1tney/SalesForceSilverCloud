@@ -1,6 +1,6 @@
 /***** Variables *****/
-$small: "only screen and (min-width : 480px)";
-$medium: "only screen and (min-width : 767px)";
+$small: "only screen and (min-width : 320px)";
+$medium: "only screen and (min-width : 575px)";
 $large: "only screen and (min-width : 1200px)";
 
 $lightgray: rgb(240, 240, 240);
@@ -34,7 +34,7 @@ a {
 
 header {
 	position: absolute;
-	height: 75px;
+	height: 70px;
 	width: 100%;
 	top: 0;
 	background: $lightgray;
@@ -71,6 +71,7 @@ header {
 	margin: 15px;
 	cursor: pointer;
 	z-index: 1;
+	position: absolute;
 }
 
 .menu-btn div {
@@ -276,16 +277,22 @@ footer {
 }
 
 #list-view {
+	width: 100%;
 	margin-top: 40px;
+	background: white;
+	position: absolute;
 
+	transition: margin-top .5s;
 
 	.list-detail {
 		border-bottom: 2px solid $lightgray;
 		line-height: 40px;
-		height: 80px;
+		height: 70px;
 		margin-bottom: 40px;
+		cursor: pointer;
 
 		.rank {
+			position: relative;
 			float: left;
 			height: 40px;
 			width: 40px;
@@ -294,6 +301,35 @@ footer {
 			background: $cloudred;
 			color: white;
 			text-align: center;
+
+			transition: all .6s;
+			transition-delay: .6s;
+		}
+
+		.rank img {
+			position: absolute;
+			top: 2px;
+			left: 2px;
+			opacity: 0;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+
+			transition: all .5s;
+			transition-delay: .5s;
+		}
+
+		.rank img.expander {
+			width: 80px;
+			height: 80px;
+			opacity: 1;
+		}
+
+		.rank.expander {
+			height: 84px;
+			width: 84px;
+			border-radius: 50%;
+			margin-left: 42%;
 		}
 
 		.business-name {
@@ -316,15 +352,38 @@ footer {
 	}
 }
 
-
+#list-view.expander {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	margin-top: -747px;
+	padding-top: 20px;
+}
 
 //***** Media Query Usage *****/
 @media #{$small} {
+	body {
+		font-size: 12px;
+	}
 
-}	
+	.contain {
+		margin: 0 auto;
+		width: 95%;
+	}
+
+	.list-detail {
+		height: 70px;
+	}	
+}
 
 @media #{$medium} {
+	body {
+		font-size: 16px;
+	}
 
+	.contain {
+		width: 80%;
+	}
 }	
 
 @media #{$large} {
