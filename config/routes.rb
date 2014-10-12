@@ -14,7 +14,7 @@
   get '/homepage', to: 'test_forces#index'
 
   get '/users' => "sfdc_users#index"
-  get '/clients' => "sfdc_clients#index"
+  get '/clients' => "sfdc_clients#index", as: 'clients'
   get '/clients/:id' => "sfdc_clients#show"
 
 
