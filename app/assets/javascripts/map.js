@@ -28,6 +28,24 @@ $(function() {
     });
   });
 
+//  $('.locate-clients').on('click', function () {
+//    $.ajax({
+//      url: '/clients',
+//      method: 'get',
+//      dataType: 'json'
+//    }).done(function(response) {
+//      //map.remove();
+//      clients = [];
+//      var menu = document.getElementById("mileage");
+//      maxMiles = menu.options[menu.selectedIndex].value;
+//      map = generateMap();
+//      createClientMarkers(response.clients);
+//      addClientMarkers(map);
+//    }).fail(function(response) {
+//      console.log("ERROR: Failed to get client data from server");
+//    });
+//  });
+
   $.ajax({
     url: '/clients',
     method: 'get',

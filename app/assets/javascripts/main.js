@@ -52,16 +52,4 @@ $(document).ready(function() {
   $('.locate-clients').on('click', function () {
     $('.clients-list').slideDown(600)
   });
-
-  $('.industry-filter a').on('click', function () {
-
-//    var industry = $(this).text().split(' ')[0];
-//    $('.list-detail').each(function () {
-//      if ($(this).is('.' + industry)) {
-//        $(this).show();
-//      } else {
-//        $(this).hide();
-//      }
-//    });
-  });
 });
