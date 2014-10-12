@@ -1,12 +1,22 @@
 <div class="main-wrapper">
 	<div class="underlay"></div>
-	<h1>Welcome</h1>
-	<div class="signup_form inactive">
-		<%= render 'signup' %>
+
+	<div class="contain">
+		<div class="welcoming">
+			<h1>Welcome to Silver Cloud</h1>
+			<h3>Prospecting Local Clients</h3>
+			<div class="signup_form inactive">
+				<%= render 'signup' %>
+			</div>
+			<div class="signin_form inactive">
+				<%= render 'signin' %>
+			</div>
+			<div class="signup-container">
+				<a href="#" class="signup">Sign Up</a>
+			</div>
+			<div class="signin-container">
+				<a href="#" class="signin">Sign In</a>
+			</div>
+		</div>
 	</div>
-	<div class="signin_form inactive">
-		<%= render 'signin' %>
-	</div>
-	<a href="#" class="signup">Sign Up</a>
-	<a href="#" class="signin">Sign In</a>
 </div>
