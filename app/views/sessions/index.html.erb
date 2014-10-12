@@ -5,6 +5,11 @@
 	<div class="contain">
 		<div class="industry-filter">
 			<div class="industry">Filter by Industry</div>
+      <ul>
+        <% @industries.each do |i| %>
+          <li><%= link_to i, '#', style: 'color: #000' %></li>
+        <% end %>
+      </ul>
 			<div class="dropdown inactive"></div>
 		</div>
 		<div class="distance-filter">
@@ -24,7 +29,7 @@
 	<div class="contain">
 		<% num = 1 %>
 		<% @clients.each do |c| %>
-			<div class="list-detail">
+			<div class="list-detail <%= c.industry__c %>">
 				<div class="rank"><%= num %><img src="https://en.gravatar.com/userimage/49627792/0c14fe363f30cd4a8ecbf2b109abfac9.jpg" alt="gravatar image"></div>
 				<div class="business-name"><%= link_to "#{c.Name}", "/clients/#{c.id__c}" %></div>
 				<div class="address-section">
