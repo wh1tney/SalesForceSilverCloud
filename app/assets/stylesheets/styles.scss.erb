@@ -3,6 +3,12 @@ $small: "only screen and (min-width : 480px)";
 $medium: "only screen and (min-width : 767px)";
 $large: "only screen and (min-width : 1200px)";
 
+$lightgray: rgb(240, 240, 240);
+$extremelightgray: rgb(252, 252, 252);
+$midgray: rgb(153, 163, 177);
+
+$cloudblue: rgb(50, 151, 215);
+$cloudred: rgb(242, 95, 88);
 
 /* apply a natural box layout model to all elements, but allowing components to change */
 html {
@@ -14,15 +20,70 @@ html {
 
 body {
 	font-size: 16px;
+	color: #2f353d;
 }
 
 header {
 	position: absolute;
-	height: 40px;
+	height: 75px;
 	width: 100%;
 	top: 0;
-	background: rgb(111, 114, 129);
+	background: $lightgray;
+	border-bottom: 3px solid rgb(234, 234, 234);
 }
+
+.inactive {
+	display: none;
+}
+
+.contain {
+	margin: 0 auto;
+	width: 80%;
+}
+
+.menu-btn {
+	margin: 25px;
+}
+
+.menu-btn div {
+ position: absolute;
+ left: 100%;
+ top: 64%;
+ padding-right: 8px;
+ margin-top: -0.50em;
+ line-height: 1.2;
+ font-size: 18px;
+ font-weight: 200;
+ vertical-align: middle;
+ z-index: 99;
+}
+ 
+.menu-btn span {
+ display: block;
+ width: 40px;
+ height: 5px;
+ margin: 6px 0;
+ background: rgb(35, 95, 114);
+ z-index: 99;
+}
+ 
+.responsive-menu{
+ display: none;
+}
+ 
+.expand {
+ display: block !important; 
+}
+
+.logo {
+	
+}
+
+.search {
+	
+}
+
+
 
 footer {
 	position: absolute;
@@ -35,7 +96,10 @@ footer {
 .main-wrapper {
 	width: 100%;
 	height: 100%;
-	padding: 50px 10%;
+	padding: 75px 0;
+	overflow-y: scroll;
+	font-size: 1.2em;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 /***** Splash *****/
@@ -77,6 +141,127 @@ footer {
 .signin {
 	right: 5px;
 }
+
+
+/***** Map / Container Styles *****/
+
+.callout {
+	height: 80px;
+	width: 80%;
+	margin: 0 auto;
+	line-height: 70px;
+	text-align: left;
+	
+	h3 {
+		font-weight: normal;
+	}
+}
+
+#filters {
+	height: 220px;
+	width: 100%;
+	background: $extremelightgray;
+	border-top: 1px solid rgb(234, 234, 234);
+	border-bottom: 1px solid $lightgray;
+	padding-top: 35px;
+	text-align: center;
+	font-size: 1em;
+	line-height: 60px;
+
+	.industry-filter {
+		width: 50%;
+		float: left;
+
+		.industry {
+			width: 230px;
+			height: 60px;
+			background: white;
+			border: 1px solid $lightgray;
+			
+		}
+	}
+
+	.distance-filter {
+		width: 50%;
+		float: left;
+
+		.category {
+			font-weight: bold;
+			display: inline-block;
+			line-height: 0;
+		}
+
+		.mileage {
+			height: 60px;
+			width: 90px;
+			float: right;
+			background: $cloudblue;
+			color: white;
+		}
+	}
+
+	.locate-clients {
+		width: 100%;
+		height: 60px;
+		position: relative;
+		float: left;
+		margin-top: 20px;
+		background: $cloudblue;
+		font-size: 1.2em;
+		color: white;
+
+	}
+}
+
+#map {
+	height: 350px;
+	webkit-box-shadow: 0px 9px 9px -8px rgba(158,158,158,1);
+	-moz-box-shadow: 0px 9px 9px -8px rgba(158,158,158,1);
+	box-shadow: 0px 9px 9px -8px rgba(158,158,158,1);
+}
+
+#list-view {
+	margin-top: 40px;
+
+
+	.list-detail {
+		border-bottom: 2px solid $lightgray;
+		line-height: 40px;
+		height: 80px;
+		margin-bottom: 40px;
+
+		.rank {
+			float: left;
+			height: 40px;
+			width: 40px;
+			margin: 0px 20px 40px 20px;
+			border-radius: 3px;
+			background: $cloudred;
+			color: white;
+			text-align: center;
+		}
+
+		.business-name {
+			line-height: 20px;
+			width: 70%;
+			font-weight: bold;
+			color: $cloudblue;
+			float: left; 
+		}
+
+		.address-section {
+			line-height: 0;
+			float: left;
+		}
+
+		.address {
+			color: $midgray;
+		}
+
+	}
+}
+
+
 
 //***** Media Query Usage *****/
 @media #{$small} {

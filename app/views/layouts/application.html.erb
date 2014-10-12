@@ -14,10 +14,25 @@
   <link rel="stylesheet" href="/assets/map.css"/>
 </head>
 <body>
-	<header></header>
-
-	<%= yield %>
-	
-	<footer></footer>
+	<header>
+		<div class="menu-btn" id="menu-btn">
+		 <div></div>
+		 <span></span>
+		 <span></span>
+		 <span></span>
+     </div>
+ 
+     <div class="responsive-menu">
+        <ul>
+           <li>1. Object</li>
+           <li>2. Object</li>
+        </ul>
+     </div>
+		<div class="logo"></div>
+		<div class="search"></div>
+	</header>
+	<div class="main-wrapper">
+		<%= yield %>
+	</div>
 </body>
 </html>
