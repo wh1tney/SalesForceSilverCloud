@@ -47,15 +47,13 @@ $(function() {
 
   var filterClientList = function() {
     var clientListObjs = document.getElementsByClassName("list-detail");
-    var n = 1;
     for(var i = 0; i < clientListObjs.length; i++) {
       clientListObjs[i].style.display="none";
       var businessName = clientListObjs[i].children[2].children[0].innerHTML;
       for(var j = 0; j < clients.length; j++) {
         if(businessName == clients[j].properties.popupContent) {
           clientListObjs[i].style.display="inherit";
-          clientListObjs[i].children[1].innerHTML = n;
-          n++;
+          clientListObjs[i].children[1].innerHTML = clients[j].properties.id;
           break;
         }
       }
