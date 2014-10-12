@@ -10,6 +10,7 @@ class SfdcClientsController < ApplicationController
   end
 
   def show
+
     # CURRENTLY ONLY GETS FIRST ENTRY
     @client = Client__c.all()[0]
 

@@ -6,14 +6,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params.require(:user).permit(:name, :username, :email, :company_name, :password, :password_confirmation))
-    respond_to do |format|
       if @user.save
         # We would create a session here with create_session
-        redirect_to container_path, notice: 'User was successfully created.'
+        redirect_to homepage_path, notice: 'User was successfully created.'
       else
         redirect_to :back
       end
-    end
   end
 
   
@@ -22,8 +20,7 @@ class UsersController < ApplicationController
   end 
 
 
-  def container
-  end
+  
 
 # Routes to be utilized later
 #   # GET /users/new

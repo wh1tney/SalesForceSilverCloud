@@ -11,11 +11,12 @@
   get '/container', to: 'users#container', as: 'container'
 
   # This will be used as a sandbox for map testing
-  get '/maptest', to: 'test_forces#index'
+  get '/homepage', to: 'test_forces#index'
 
   get '/users' => "sfdc_users#index"
   get '/clients' => "sfdc_clients#index"
-  get '/client' => "sfdc_clients#show"
+  get '/clients/:id' => "sfdc_clients#show"
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
