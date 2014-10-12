@@ -51,6 +51,54 @@ header {
 	width: 80%;
 }
 
+/***** Welcoming *****/
+.welcoming {
+	position: relative;
+	width: 100%;
+	height: 540px;
+	color: $cloudblue;
+
+	h3 {
+		font-size: 1.4em;
+		font-weight: normal;
+		margin-bottom: 1.3em;
+	}
+}
+
+form {
+	line-height: 20px;
+
+	>div {
+		height: 40px
+	}
+
+	input {
+		background: none;
+		border: 1px solid white;
+		float: right;
+		margin-bottom: 10px;
+		width: 60%;
+		height: 26px;
+	}
+
+	.actions {
+		width: 100%;
+		height: 40px;
+	}
+
+	input[type=submit]{
+		display: block;
+		width: 40%;
+		background: white;
+		margin: 0 auto;
+		height: 40px;
+		width: 300px;
+		float: none;
+	}
+}
+
+
+
 /***** Main Styles *****/
 
 .panel {
@@ -147,7 +195,7 @@ footer {
 .main-wrapper {
 	width: 100%;
 	height: 100%;
-	padding: 75px 0;
+	padding: 40px 0;
 	overflow-y: scroll;
 	font-size: 1.2em;
 	font-family: Arial, Helvetica, sans-serif;
@@ -162,8 +210,9 @@ footer {
 	width: 100%;
 	height: 100%;
 	z-index: -1;
-	background: url(<%= asset_path 'handheld.jpg' %>);
+	background: url(/assets/handheld.jpg);
 	background-size: cover;
+	opacity: .5;
 }
 
 .signup_form, .signin_form {
@@ -174,23 +223,27 @@ footer {
 	display: block;
 }
 
-.signup, .signin {
+.signup-container, .signin-container {
 	position: absolute;
-	bottom: 90px;
-	width: 120px;
+	width: 100%;
+	bottom: 0;
+}
+
+.signin-container {
+	bottom: 50px
+}
+
+.signup, .signin {
+	position: relative;
+	width: 75%;
 	height: 40px;
-	border: 3px solid white;
+	border: 3px solid $cloudred;
 	cursor: pointer;
 	text-align: center;
 	line-height: 40px;
-}
-
-.signup {
-	left: 5px;
-}
-
-.signin {
-	right: 5px;
+	display: block;
+	margin: 0 auto;
+	color: $cloudred;
 }
 
 
