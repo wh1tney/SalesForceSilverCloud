@@ -10,7 +10,7 @@ class SfdcClientsController < ApplicationController
   end
 
   def show
-    @clients = Client__c.find(params[:id])
+    @client = Client__c.find(params[:id])
   end
 
 # Routes to be utilized later
