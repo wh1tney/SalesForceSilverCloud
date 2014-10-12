@@ -91,4 +91,12 @@ $(function(){
 		});
 		
 	});
-})
+});
+
+$(document).ready(function() {
+  $('.clients-list').hide();
+
+  $('.locate-clients').on('click', function () {
+    $('.clients-list').slideDown(600)
+  });
+});

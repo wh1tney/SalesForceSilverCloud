@@ -55,3 +55,5 @@ gem 'annotate', '~> 2.6.5'
 
 gem 'omniauth'
 gem 'omniauth-salesforce'
+
+gem 'enumerate_it', '~> 1.2'

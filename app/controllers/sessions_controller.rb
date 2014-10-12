@@ -1,9 +1,12 @@
 class SessionsController < ApplicationController
   include Databasedotcom::Rails::Controller
+
+  INDUSTRIES = ['Education', 'Accounting', 'Entertainment & Leisure']
+
   def index
-    @clients = Client__c.all()
-    #@clients = Client.all()
-    #@clients = SFDC_Models::Client.all()
+    @clients    = Client__c.all()
+    @industries = INDUSTRIES
+
     respond_to do |format|
       format.html
       format.json { render json: @clients }
@@ -26,5 +29,9 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     redirect_to root_url
+  end
+
+  def filter_industry
+
   end
 end
