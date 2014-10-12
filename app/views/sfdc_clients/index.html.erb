@@ -2,16 +2,27 @@
     <h1>Clients</h1>
 
     <% @clients.each do |c| %>
-        Name:      <%= name      = c.Name %><br>
-        Address:   <%= address   = c.address__c %><br>
-        Bio:       <%= bio       = c.bio__c %><br>
-        Inquiries: <%= inquiries = c.inquiries__c.to_i %><br>
-        Price:     <%= price     = "$#{c.price__c.to_i}" %><br>
-        Rating:    <%= rating    = c.rating__c.to_i %><br>
-        Email:     <%= email     = c.email__c %><br>
-        Phone:     <%= phone     = c.phone__c %><br>
-        Industry:  <%= industry  = c.industry__c %><br>
-        Primary Contact: <%= primary_contact = c.primary_contact__c %><br>
+        <% name      = c.Name %>
+        <% address   = c.address__c %>
+        <% bio       = c.bio__c %>
+        <% inquiries = c.inquiries__c.to_i %>
+        <% price     = "$#{c.price__c.to_i}" %>
+        <% rating    = c.rating__c.to_i %>
+        <% email     = c.email__c %>
+        <% phone     = c.phone__c %>
+        <% industry  = c.industry__c %>
+        <% primary_contact = c.primary_contact__c %>
+
+        <%= link_to "Name: #{name}", "/clients/#{c.id__c}" %><br>
+        Address:   <%= address %><br>
+        Bio:       <%= bio %><br>
+        Inquiries: <%= inquiries %><br>
+        Price:     <%= price %><br>
+        Rating:    <%= rating %><br>
+        Email:     <%= email %><br>
+        Phone:     <%= phone %><br>
+        Industry:  <%= industry %><br>
+        Primary Contact: <%= primary_contact %><br>
 
         <br>
     <% end %>
