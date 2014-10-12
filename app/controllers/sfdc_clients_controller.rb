@@ -3,6 +3,8 @@ class SfdcClientsController < ApplicationController
 
   def index
     @clients = Client__c.all()
+    #@clients = Client.all()
+    #@clients = SFDC_Models::Client.all()
     respond_to do |format|
       format.html
       format.json { render json: @clients }
@@ -10,9 +12,7 @@ class SfdcClientsController < ApplicationController
   end
 
   def show
-
-    # CURRENTLY ONLY GETS FIRST ENTRY
-    @client = Client__c.all()[0]
+    @client = Client__c.query("id__c = '#{params[:id]}'").first
 
     @name      = @client.Name
     @address   = @client.address__c
