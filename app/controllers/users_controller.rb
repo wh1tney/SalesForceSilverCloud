@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  include Databasedotcom::Rails::Controller
-
   def index
     @users = User.all()[0..19]
   end
@@ -17,7 +15,7 @@ class UsersController < ApplicationController
     @user = User.new(params.require(:user).permit(:name, :username, :email, :company_name, :password, :password_confirmation))
     if @user.save
       # We would create a session here with create_session
-      redirect_to homepage_path, notice: 'User was successfully created.'
+      redirect_to home_path, notice: 'User was successfully created.'
     else
       redirect_to :back
     end
