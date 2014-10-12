@@ -101,11 +101,84 @@ form {
 
 /***** Main Styles *****/
 
-.panel {
-    position: fixed;
-    left: -15.625em; /*left or right and the width of your navigation panel*/
-    width: 15.625em; /*should match the above value*/
+panel .profile-image-wrapper {
+	position: absolute;
+	top: 50px;
+	left: 10px;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	overflow: hidden;
+	border: 2px solid white;
+
+	img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100px;
+		height: 100px;
+	}
 }
+
+.panel .profile {
+	margin-top: 55px;
+	height: 115px;
+}
+
+.panel hr {
+	width: 80%;
+	margin: 0 auto;
+	border-bottom: 2px solid white;
+}
+
+.panel .profile-info {
+	width: 50%;
+	float: right;
+	text-align: left;
+	color: white;
+	font-weight: bold;
+}
+
+.panel .position {
+	-webkit-margin-after: 0em;
+}
+
+.panel .name {
+	-webkit-margin-before: .5em;
+	font-weight: normal;
+}
+
+.listing .current, .listing .prospective {
+	position: relative;
+	width: 100%;
+	height: 45px;
+	margin-bottom: 20px;
+	line-height: 45px;
+	text-indent: 30px;
+	color: white;
+	cursor: pointer;
+}
+
+.listing img {
+	width: 30px;
+	height: 30px;
+	left: -2px;
+	top: 4px;
+	position: absolute;
+}
+
+.logout {
+	cursor: pointer;
+	position: relative;
+	text-indent: 30px;
+	margin-top: 95px;
+	text-decoration: underline;
+
+	img {
+		top: -5px;
+	}
+}
+
 
 #menu {
 	background: $cloudblue;
