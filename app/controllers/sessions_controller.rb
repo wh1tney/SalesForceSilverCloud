@@ -5,8 +5,7 @@ class SessionsController < ApplicationController
   def create
     auth_hash = request.env['omniauth.auth']
     session[:user_id] = auth_hash.user_id
-    redirect_to root_url
-    #render :text=> auth_hash.inspect
+    redirect_to clients_path
   end
 
   def failure
