@@ -37,6 +37,9 @@ $(function(){
 		that.find('.address-section')
 		.addClass('expander');
 
+		that.find('.expanded-details-wrapper')
+		.addClass('expander');
+
 		that.find('.expanded-details')
 		.addClass('expander');
 
