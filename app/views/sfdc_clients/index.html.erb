@@ -2,6 +2,7 @@
     <h1>Clients</h1>
 
     <% @clients.each do |c| %>
+        <img src="<%= h(gravatar_url(c.email__c, :size => 80)) %>" alt="Gravatar"/>
         <% name      = c.Name %>
         <% address   = c.address__c %>
         <% bio       = c.bio__c %>
