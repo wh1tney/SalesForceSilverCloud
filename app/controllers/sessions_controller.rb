@@ -1,5 +1,13 @@
 class SessionsController < ApplicationController
+  include Databasedotcom::Rails::Controller
   def index
+    @clients = Client__c.all()
+    #@clients = Client.all()
+    #@clients = SFDC_Models::Client.all()
+    respond_to do |format|
+      format.html
+      format.json { render json: @clients }
+    end
   end
 
   def new

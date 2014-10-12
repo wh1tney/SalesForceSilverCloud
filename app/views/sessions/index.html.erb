@@ -12,29 +12,23 @@
 			<div class="mileage">10mi</div>
 			<div class="dropdown inactive"></div>
 		</div>
-		<div class="locate-clients"><a href="#">Locate Clients</a></div>	
+		<div class="locate-clients"><a href="#" data-remote="true">Locate Clients</a></div>
 	</div>
 </section>
 <section id="map"></section>
-<section id="list-view">
+<section id="list-view" class="clients-list">
 	<div class="contain">
-		<div class="list-detail">
-			<div class="rank">1
-				<img src="https://en.gravatar.com/userimage/49627792/0c14fe363f30cd4a8ecbf2b109abfac9.jpg" alt="gravatar image">
+		<% num = 1 %>
+		<% @clients.each do |c| %>
+			<div class="list-detail">
+				<div class="rank"><%= num %><img src="https://en.gravatar.com/userimage/49627792/0c14fe363f30cd4a8ecbf2b109abfac9.jpg" alt="gravatar image"></div>
+				<div class="business-name"><%= link_to "#{c.Name}", "/clients/#{c.id__c}" %></div>
+				<div class="address-section">
+					<div class="detail-pin"></div>
+					<p class="address"><%= "#{c.address__c}" %></p>
+				</div>
 			</div>
-			<div class="business-name">Lowe's</div>
-			<div class="address-section">
-				<div class="detail-pin"></div>
-				<p class="address">165 Folsum St, San Francisco, CA 12131</p>
-			</div>
-		</div>
-		<div class="list-detail">
-			<div class="rank">2</div>
-			<div class="business-name">Target</div>
-			<div class="address-section">
-				<div class="detail-pin"></div>
-				<p class="address">169 Folsum St, San Francisco, CA 12131</p>
-			</div>
-		</div>
+			<% num += 1 %>
+		<% end %>
 	</div>
 </section>
