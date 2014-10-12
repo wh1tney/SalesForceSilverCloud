@@ -50,6 +50,14 @@
 						</div>
 						<div class="chatter-section">
 							<p>Chatter Section</p>
+							<% @posts.each do |p| %>
+								<% if p.raw_hash["parent"]["name"] == c.Name %>
+									<p>
+										<%= p.raw_hash["body"]["text"] %>
+										- <%= p.raw_hash["actor"]["name"] %>
+									</p>
+								<% end %>
+							<% end %>
 						</div>
 					</div>
 				</div>
