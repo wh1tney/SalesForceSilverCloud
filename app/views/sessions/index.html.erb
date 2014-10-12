@@ -45,7 +45,7 @@
 						</div>
 						<div class="phone-section">
 							<img src="<%= asset_path('phone.svg') %>" alt="phone logo">
-							<p class="number"><%= c.phone__c %></p>
+							<p><a href="number" style="color:#2F353D"><%=c.phone__c%></a></p>
 						</div>
 						<div class="industry-section">
 							<img src="<%= asset_path('entertainment.svg') %>" alt="industry logo">
@@ -55,12 +55,14 @@
 							<p class="bio"><%= c.bio__c %></p>
 						</div>
 						<div class="chatter-section">
-							<p>Chatter Section</p>
+							<h3 class="chatter-heading">Recent Chatter</h3>
 							<% @posts.each do |p| %>
 								<% if p.raw_hash["parent"]["name"] == c.Name %>
 									<p>
-										<%= p.raw_hash["body"]["text"] %>
-										- <%= p.raw_hash["actor"]["name"] %>
+										<img src="<%=asset_path('chat.svg')%>"  alt="chat icon">
+										<span class="group-name"><%= p.raw_hash["actor"]["name"] %></span>
+										<br>
+										<span class="body"><%= p.raw_hash["body"]["text"] %></span>
 									</p>
 								<% end %>
 							<% end %>
