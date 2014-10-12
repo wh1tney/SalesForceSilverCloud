@@ -2,6 +2,7 @@ $(function() {
   var clients = [];
   var map;
   var currentLoc;
+  var maxMiles = 10;
 
   $.ajax({
     url: '/clients',
@@ -12,6 +13,9 @@ $(function() {
 
     $('.locate-clients').on('click', function () {
       map.remove();
+      clients = [];
+      var menu = document.getElementById("mileage");
+      maxMiles = menu.options[menu.selectedIndex].value;
       map = generateMap();
       createClientMarkers(response);
       addClientMarkers(map);
@@ -23,7 +27,7 @@ $(function() {
   var createClientMarkers = function(clientObjs) {
     for(var idx = 0; idx < clientObjs.length; idx++) {
       var clientDistanceInMiles = currentLoc.distanceTo([clientObjs[idx].location__Latitude__s, clientObjs[idx].location__Longitude__s])/1609.34;
-      if(clientDistanceInMiles <= 10) {
+      if(clientDistanceInMiles <= maxMiles) {
         clients.push({
           "type": "Feature",
           "properties": {
