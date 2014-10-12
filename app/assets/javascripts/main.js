@@ -31,6 +31,14 @@ $(function(){
 		that.find('.rank img')
 		.addClass('expander');
 
+		that.find('.business-name')
+		.addClass('expander');
+
+		that.find('.address-section')
+		.addClass('expander');
+
+		that.find('.expanded-details')
+		.addClass('expander');
 
 	})
 })
