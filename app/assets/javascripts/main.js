@@ -54,13 +54,14 @@ $(document).ready(function() {
   });
 
   $('.industry-filter a').on('click', function () {
-    var industry = $(this).text().split(' ')[0];
-    $('.list-detail').each(function () {
-      if ($(this).is('.' + industry)) {
-        $(this).show();
-      } else {
-        $(this).hide();
-      }
-    });
+
+//    var industry = $(this).text().split(' ')[0];
+//    $('.list-detail').each(function () {
+//      if ($(this).is('.' + industry)) {
+//        $(this).show();
+//      } else {
+//        $(this).hide();
+//      }
+//    });
   });
 });

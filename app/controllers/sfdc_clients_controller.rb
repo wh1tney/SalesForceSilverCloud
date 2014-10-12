@@ -2,12 +2,17 @@ class SfdcClientsController < ApplicationController
   include Databasedotcom::Rails::Controller
 
   def index
-    @clients = Client__c.all()
-    #@clients = Client.all()
-    #@clients = SFDC_Models::Client.all()
+
+    if params[:filter]
+      @clients = Client__c.query("industry__c = '#{params[:filter_name]}'")
+    else
+      @clients = Client__c.all()
+    end
+
     respond_to do |format|
       format.html
-      format.json { render json: @clients }
+      #format.json { render json: {clients: @clients, html: render_to_string('layouts/clients_list', locals: {clients: @clients})} }
+      format.json { render json: {clients: @clients, html: render_to_string(partial: 'layouts/clients_list', locals: {clients: @clients}, formats: [:html])} }
     end
   end
 

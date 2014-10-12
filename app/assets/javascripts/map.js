@@ -4,6 +4,31 @@ $(function() {
   var currentLoc;
   var maxMiles = 10;
 
+  $('.industry-filter a').on('click', function (e) {
+    e.preventDefault();
+
+    $.ajax({
+      url: '/clients',
+      method: 'get',
+      dataType: 'json',
+      data: {
+        filter: true,
+        filter_name: $(this).text()
+      }
+    }).done(function (response) {
+      map.remove();
+      clients = [];
+      map = generateMap();
+      //createClientMarkers(response);
+      createClientMarkers(response.clients);
+      addClientMarkers(map);
+      $('.clients-list').find('.contain').show().html(response.html);
+      // render clients list partial
+    }).fail(function (response) {
+      console.log("ERROR: Failed to get client data from server");
+    });
+  });
+
   $.ajax({
     url: '/clients',
     method: 'get',
@@ -17,7 +42,7 @@ $(function() {
       var menu = document.getElementById("mileage");
       maxMiles = menu.options[menu.selectedIndex].value;
       map = generateMap();
-      createClientMarkers(response);
+      createClientMarkers(response.clients);
       addClientMarkers(map);
     });
   }).fail(function(response) {
