@@ -4,8 +4,6 @@
 
   # You can have the root of your site routed with "root"
 
-  #resources :sfdc_clients
-
   root 'users#welcome'
   get '/welcome' => "users#welcome", as: 'users'
   post '/welcome' => "users#create"
