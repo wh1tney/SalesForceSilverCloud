@@ -11,6 +11,8 @@ $(function() {
     map = generateMap();
 
     $('.locate-clients').on('click', function () {
+      map.remove();
+      map = generateMap();
       createClientMarkers(response);
       addClientMarkers(map);
     });
