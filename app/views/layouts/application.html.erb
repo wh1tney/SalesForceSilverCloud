@@ -14,25 +14,32 @@
   <link rel="stylesheet" href="/assets/map.css"/>
 </head>
 <body>
-	<header>
-		<div class="menu-btn" id="menu-btn">
-		 <div></div>
-		 <span></span>
-		 <span></span>
-		 <span></span>
-     </div>
- 
-     <div class="responsive-menu">
-        <ul>
-           <li>1. Object</li>
-           <li>2. Object</li>
-        </ul>
-     </div>
-		<div class="logo"></div>
-		<div class="search"></div>
-	</header>
-	<div class="main-wrapper">
-		<%= yield %>
+	<nav id="menu" class="panel" role="navigation">
+	    <ul>
+	        <li><a href="#">Link1</a></li>
+	        <li><a href="#">Link2</a></li>
+	        <li><a href="#">Link3</a></li>
+	        <li><a href="#">Make Better</a></li>
+	    </ul>
+	</nav>
+
+	<div class="wrap push">
+		<header>
+			<div class="menu-btn menu-link" id="menu-btn">
+				 <div></div>
+				 <span></span>
+				 <span></span>
+				 <span></span>
+		     	</div>
+		     
+			<div class="logo-wrapper">
+				<div class="logo"></div>
+			</div>
+			<div class="search"></div>
+		</header>
+		<div class="main-wrapper">
+			<%= yield %>
+		</div>
 	</div>
 </body>
 </html>
