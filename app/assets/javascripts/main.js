@@ -10,4 +10,13 @@ $(function(){
 	});
 
 	$('.menu-link').bigSlide();
+
+	var listDetails = $('.list-detail');
+
+	listDetails.on('click', function(event){
+		event.preventDefault();
+		$(this).closest('#list-view').addClass('expander');
+		listDetails.hide();
+		$(this).show();
+	})
 })
