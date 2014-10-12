@@ -32,7 +32,8 @@ $(function() {
           "type": "Feature",
           "properties": {
               "id": idx + 1,
-              "popupContent": clientObjs[idx].Name
+              "popupContent": clientObjs[idx].Name,
+              "prospect": +clientObjs[idx].id__c % 2
           },
           "geometry": {
               "type": "Point",
@@ -65,7 +66,7 @@ $(function() {
 
       currentLoc = e.latlng;
 
-      L.marker(e.latlng, {icon: userIcon}).addTo(map).bindPopup("You are here").openPopup();
+      L.marker(e.latlng, {icon: userIcon}).addTo(map).bindPopup("You are here");
     }
 
     function onLocationError(e) {
@@ -90,13 +91,24 @@ $(function() {
     L.geoJson(clients, {
       onEachFeature: onEachFeature,
       pointToLayer: function (feature, latlng) {
-        return L.marker(latlng, {icon: L.AwesomeMarkers.icon({
-          icon: '',
-          markerColor: 'red',
-          prefix: 'fa',
-          html: feature.properties.id
-        })
-        });
+        switch(feature.properties.prospect){
+          case 0:
+            return L.marker(latlng, {icon: L.AwesomeMarkers.icon({
+                icon: '',
+                markerColor: 'red',
+                prefix: 'fa',
+                html: feature.properties.id
+              })
+            });
+          case 1:
+            return L.marker(latlng, {icon: L.AwesomeMarkers.icon({
+                icon: '',
+                markerColor: 'green',
+                prefix: 'fa',
+                html: feature.properties.id
+              })
+            });
+        }
       }
     }).addTo(map);
   };
