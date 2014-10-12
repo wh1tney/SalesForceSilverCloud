@@ -18,21 +18,17 @@
 <section id="map"></section>
 <section id="list-view">
 	<div class="contain">
-		<div class="list-detail">
-			<div class="rank">1</div>
-			<div class="business-name">Lowe's</div>
-			<div class="address-section">
-				<div class="detail-pin"></div>
-				<p class="address">165 Folsum St, San Francisco, CA 12131</p>
+		<% num = 1 %>
+		<% @clients.each do |c| %>
+			<div class="list-detail">
+				<div class="rank"><%= num %></div>
+				<div class="business-name"><%= link_to "#{c.Name}", "/clients/#{c.id__c}" %></div>
+				<div class="address-section">
+					<div class="detail-pin"></div>
+					<p class="address"><%= "#{c.address__c}" %></p>
+				</div>
 			</div>
-		</div>
-		<div class="list-detail">
-			<div class="rank">2</div>
-			<div class="business-name">Target</div>
-			<div class="address-section">
-				<div class="detail-pin"></div>
-				<p class="address">169 Folsum St, San Francisco, CA 12131</p>
-			</div>
-		</div>
+			<% num += 1 %>
+		<% end %>
 	</div>
 </section>

@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  include Databasedotcom::Rails::Controller
   def index
     @clients = Client__c.all()
     #@clients = Client.all()
